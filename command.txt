@@ -1,0 +1,22 @@
+conda activate sdnet-modern
+
+python main.py coqa/conf train
+
+python main.py coqa/conf test --MODEL_PATH coqa/conf~/run_n/best_model.pt   --EVAL_SPLIT test
+
+Experiment notes:
+run_5: original SDNet(need to use _orig file to run test result), 3 epochs
+[Eval-test] F1=69.45  (normal 70.33 | yes 93.04 | no 36.77 | unknown 49.92)
+run_13: LoRA_Bert_SDNet, 3 epochs, 
+[Eval-test] F1=76.39  (normal 77.15 | yes 90.66 | no 56.36 | unknown 41.85)
+run_1: LoRA_Bert_SDNet, 30 epochs
+[Eval-test] F1=78.62  (normal 78.09 | yes 84.97 | no 78.68 | unknown 41.36)
+
+# evaluate biased_T5 output
+python eval_T5.py --pred coqa/conf~/spacy_intermediate_feature~/span_bias_eval/t5_span_bias_predictions.json --gold_preprocessed coqa/conf~/spacy_intermediate_feature~/coqa-test-preprocessed.json
+
+# evaluate pure T5 output
+python T5.py --test_json coqa/conf~/spacy_intermediate_feature~/coqa-test-preprocessed.json \
+  --output t5_predictions.json \
+  --model_id google/flan-t5-base \
+  --batch_size 16
