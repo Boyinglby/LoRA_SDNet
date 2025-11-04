@@ -1,10 +1,9 @@
 # Lora_SDNet
 
-This is the official code for the Microsoft's submission of SDNet model to [CoQA](https://stanfordnlp.github.io/coqa/) leaderboard. It is implemented under PyTorch framework. The related paper to cite is: 
+This is the built upon the code for the Microsoft's submission of SDNet model to [CoQA](https://stanfordnlp.github.io/coqa/) leaderboard. It is implemented under PyTorch framework. The SDNet paper to cite is: 
 
 **SDNet: Contextualized Attention-based Deep Network for Conversational Question Answering**, by Chenguang Zhu, Michael Zeng and Xuedong Huang, at https://arxiv.org/abs/1812.03593.
 
-For usage of this code, please follow [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct).
 
 # Directory structure:
 * main.py: the starter code
@@ -56,5 +55,5 @@ If you run for the first time, CoQAPreprocess.py will automatically create folde
 
 Every time you run the code, a new running folder **run_idx** will be created inside **coqa/conf~**, which contains running logs, prediction result on dev set, and best model.
 
-# Contact
-If you have any questions, please contact Chenguang Zhu, chezhu@microsoft.com
+
+
