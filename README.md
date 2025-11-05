@@ -24,7 +24,7 @@ This is the built upon the code for the Microsoft's submission of SDNet model to
   * Timing.py: Logging time
 
 # How to run
-Requirement: PyTorch 0.4.1, spaCy 2.0.16.
+Create env: conda env create -f environment.yml
 
 1. Create a folder (e.g. **coqa**) to contain data and running logs;
 2. Create folder **coqa/data** to store CoQA raw data: **coqa-train-v1.0.json** and **coqa-dev-v1.0.json**;
@@ -54,6 +54,7 @@ Then, execute `python main.py train path_to_coqa/conf`.
 If you run for the first time, CoQAPreprocess.py will automatically create folders **conf~/spacy_intermediate_features~** inside **coqa** to store intermediate tokenization results, which will take a few hours.
 
 Every time you run the code, a new running folder **run_idx** will be created inside **coqa/conf~**, which contains running logs, prediction result on dev set, and best model.
+
 
 
 
