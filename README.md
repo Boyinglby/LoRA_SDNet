@@ -55,6 +55,9 @@ If you run for the first time, CoQAPreprocess.py will automatically create folde
 
 Every time you run the code, a new running folder **run_idx** will be created inside **coqa/conf~**, which contains running logs, prediction result on dev set, and best model.
 
+# Evaluation:
+execute 'python main.py coqa/conf test --MODEL_PATH coqa/conf~/run_n/best_model.pt   --EVAL_SPLIT test'
+
 
 
 
