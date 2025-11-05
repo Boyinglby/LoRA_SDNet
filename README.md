@@ -25,7 +25,7 @@ This is the built upon the code for the Microsoft's submission of SDNet model to
 
 # How to run
 Requirement: PyTorch 0.4.1, spaCy 2.0.16.
-The docker we used is available at dockerhub: https://hub.docker.com/r/zcgzcgzcg/squadv2/tags. Please use v3.0 or v4.0.
+
 1. Create a folder (e.g. **coqa**) to contain data and running logs;
 2. Create folder **coqa/data** to store CoQA raw data: **coqa-train-v1.0.json** and **coqa-dev-v1.0.json**;
 3. Copy the file **conf** from the repo into folder **coqa**;
@@ -34,7 +34,7 @@ The docker we used is available at dockerhub: https://hub.docker.com/r/zcgzcgzcg
       * 'bert-base-uncased': "https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased.tar.gz",
       * 'bert-large-uncased': "https://s3.amazonaws.com/models.huggingface.co/bert/bert-large-uncased.tar.gz"
     * bert-large-uncased-vocab.txt can be downloaded from Google's BERT repository
-5. Create a folder **glove** in the same directory of **coqa** and download GloVe embedding **glove.840B.300d.txt** into the folder.
+5. Create a folder **glove** under the folder **coqa** and download GloVe embedding **glove.840B.300d.txt** into the folder.
 
 Your directory should look like this:
 * coqa/
@@ -46,14 +46,15 @@ Your directory should look like this:
     * bert_config.json
     * pytorch_model.bin
   * conf  
-* glove/
-  * glove.840B.300d.txt
+  * glove/
+    * glove.840B.300d.txt
 
 Then, execute `python main.py train path_to_coqa/conf`.
 
 If you run for the first time, CoQAPreprocess.py will automatically create folders **conf~/spacy_intermediate_features~** inside **coqa** to store intermediate tokenization results, which will take a few hours.
 
 Every time you run the code, a new running folder **run_idx** will be created inside **coqa/conf~**, which contains running logs, prediction result on dev set, and best model.
+
 
 
 
